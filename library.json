@@ -1,8 +1,8 @@
 {
   "name": "esp32-sys-health",
-  "version": "1.0.0",
-  "description": "Header-only ESP32 heap / stack / reset-cause health monitor for Arduino-ESP32. Samples free and minimum heap, largest block, fragmentation, PSRAM, per-task stack headroom and uptime; classifies ok/warn/fault against configurable floors; records the fault reason in RTC memory so the next boot can report it; decodes esp_reset_reason; optional core-dump summary and TWAI/CAN counters.",
-  "keywords": "esp32, heap, stack, fragmentation, watchdog, reset reason, diagnostics, health, freertos",
+  "version": "1.1.0",
+  "description": "Header-only ESP32 heap / stack / reset-cause health monitor for Arduino-ESP32. Samples free and minimum heap, largest block, fragmentation, PSRAM, per-task stack headroom and uptime; classifies ok/warn/fault against configurable floors; records the fault reason in RTC memory so the next boot can report it; decodes esp_reset_reason; optional core-dump summary and TWAI/CAN counters. Also ota_pull.h: header-only pull-model OTA (manifest fetch with optional HMAC, SHA-256-verified streaming download into the inactive slot, bootloader rollback bookkeeping) with policy left to the caller.",
+  "keywords": "esp32, heap, stack, fragmentation, watchdog, reset reason, diagnostics, health, freertos, ota, rollback, update",
   "repository": {
     "type": "git",
     "url": "https://github.com/rfanfant/esp32-sys-health.git"
@@ -15,7 +15,10 @@
   ],
   "frameworks": "arduino",
   "platforms": "espressif32",
-  "headers": "sys_health.h",
+  "headers": [
+    "sys_health.h",
+    "ota_pull.h"
+  ],
   "build": {
     "libArchive": false
   }
