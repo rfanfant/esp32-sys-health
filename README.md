@@ -129,6 +129,16 @@ void pollOnce() {                       // from a low-priority task
 `tools/ota_publish.py` in each consuming project writes the manifest (and the
 `hmac` field when given a key).
 
+## Example
+
+`examples/full_demo/` is a standalone PlatformIO project that exercises every
+public API in `sys_health.h` from an interactive serial console, including the
+reboot round trip (`sysHealthPrepareReboot()` → `esp_restart()` →
+`sysHealthBootInfo()` reporting the fault on the next boot). Verified building
+for both classic ESP32 and ESP32-S3, and flashed to a YD-ESP32-S3-N16R8 for a
+real reboot-record test. See its README for the command list and sample
+output.
+
 ## Notes
 
 - Both headers hold module state in `static` variables and an `RTC_NOINIT_ATTR`

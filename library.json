@@ -21,5 +21,12 @@
   ],
   "build": {
     "libArchive": false
+  },
+  "export": {
+    "include": [
+      "src",
+      "library.json",
+      "README.md"
+    ]
   }
 }
